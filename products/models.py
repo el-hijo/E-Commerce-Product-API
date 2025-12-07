@@ -30,7 +30,7 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     image = models.URLField(max_length=500, blank=True, null=True) 
     created_at =models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category,on_delete=models.SET_NULL,
+    category = models.ForeignKey(Category,on_delete=models.PROTECT,
                                  related_name="products")
     owner = models.ForeignKey(User, on_delete=models.CASCADE,
                               related_name="products")   
