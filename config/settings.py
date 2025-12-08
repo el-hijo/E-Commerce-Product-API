@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #third party apps
+    
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_spectacular',
 
     
@@ -134,8 +136,16 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication',],
+    'TITLE': 'E-Commerce Product API',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
-        #'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    ]
+    ],
+}
+
+SPECTACULAR_SETTINGS = {
+    
+    'DESCRIPTION': 'API documentation for the e-commerce platform',
+    'VERSION': '1.0.0',
 }

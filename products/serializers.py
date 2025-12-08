@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Category, Product
 
 class CategorySerializer(serializers.ModelSerializer):
-    
     """Serializer for handling category data"""
     class Meta:
         model = Category
@@ -11,13 +10,12 @@ class CategorySerializer(serializers.ModelSerializer):
             "slug",
             "created_at",
         ]
-        
         read_only_fields = ["name", "created_at"]
     
     
 class ProductSerializer(serializers.ModelSerializer):
-    
     """Serializer for handling product data"""
+
     category_name = serializers.CharField(
         source="category.name",
         read_only=True,
@@ -27,7 +25,8 @@ class ProductSerializer(serializers.ModelSerializer):
     owner_username = serializers.CharField(
         source="owner.username",
         read_only=True,
-        help_text="Username of the product creator")
+        help_text="Username of the product creator"
+    )
     
     class Meta:
         model = Product
@@ -36,10 +35,9 @@ class ProductSerializer(serializers.ModelSerializer):
             "name",
             "description",
             "price",
-            "sku",
             "category",
             "category_name",
-            "stock",
+            "stock_quantity",  
             "is_active",
             "owner",
             "owner_username",
@@ -50,7 +48,6 @@ class ProductSerializer(serializers.ModelSerializer):
             "id",
             "owner",
             "created_at",
-            "updated_at",
             "category_name",
             "owner_username",
         ]
