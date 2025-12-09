@@ -39,6 +39,9 @@ urlpatterns = [
     # Authentication routes
     path('api/auth/', include('accounts.urls')),
 
+    #Inventory routes
+    path('api/', include('inventory.urls')),
+
     # API schema + docs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
