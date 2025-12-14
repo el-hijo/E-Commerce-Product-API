@@ -45,6 +45,10 @@ urlpatterns = [
     #Shipping routes
     path("api/shipping/", include("shipping.urls")),
 
+    #Cart routes
+    path("api/cart/", include("cart.urls")),
+
+    
 
     # API schema + docs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
