@@ -51,7 +51,10 @@ urlpatterns = [
     #Order routes
     path("api/order/", include("order.urls")),
 
+    #Payment routes
+    path("api/payment/", include("payment.urls")),
 
+    
     # API schema + docs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
