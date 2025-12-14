@@ -54,6 +54,9 @@ urlpatterns = [
     #Payment routes
     path("api/payment/", include("payment.urls")),
 
+    #Reviews routes
+    path("api/reviews/", include("reviews.urls")),
+
     
     # API schema + docs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
