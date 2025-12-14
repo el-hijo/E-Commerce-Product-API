@@ -2,7 +2,7 @@ import uuid
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
-from orders.models import Order
+from order.models import Order
 from .models import Payment
 
 # Create your views here.
