@@ -40,7 +40,7 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),
 
     #Inventory routes
-    path('api/', include('inventory.urls')),
+    path('api/inventory/', include('inventory.urls')),
     
     #Shipping routes
     path("api/shipping/", include("shipping.urls")),
@@ -49,10 +49,10 @@ urlpatterns = [
     path("api/cart/", include("cart.urls")),
 
     #Order routes
-    path("api/order/", include("order.urls")),
+    path("api/orders/", include("order.urls")),
 
     #Payment routes
-    path("api/payment/", include("payment.urls")),
+    path("api/payments/", include("payment.urls")),
 
     #Reviews routes
     path("api/reviews/", include("reviews.urls")),
