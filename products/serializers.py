@@ -28,6 +28,13 @@ class ProductSerializer(serializers.ModelSerializer):
         help_text="Username of the product creator"
     )
     
+    stock_quantity = serializers.IntegerField(
+        source="inventory.stock_quantity",
+        read_only=True,
+        help_text="Available stock quantity"
+    )
+    
+    
     class Meta:
         model = Product
         fields = [
