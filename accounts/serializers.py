@@ -40,3 +40,7 @@ class EmailAuthTokenSerializer(serializers.Serializer):
         attrs["user"] = user
         return attrs
 
+class AuthResponseSerializer(serializers.Serializer):
+    token = serializers.CharField()
+    user_id = serializers.IntegerField()
+    username = serializers.CharField()

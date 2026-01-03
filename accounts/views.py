@@ -5,7 +5,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from django.contrib.auth.models import User
-from .serializers import RegisterSerializer
+from drf_spectacular.utils import extend_schema
+from .serializers import RegisterSerializer, AuthResponseSerializer
+
+
 
 # Create your views here.
 class RegisterView(generics.CreateAPIView):
@@ -18,6 +21,10 @@ class RegisterView(generics.CreateAPIView):
 
 
 class CustomAuthToken(ObtainAuthToken):
+    
+    @extend_schema(
+        responses=AuthResponseSerializer
+    )
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(
             data=request.data,
@@ -33,3 +40,6 @@ class CustomAuthToken(ObtainAuthToken):
             'username': user.username,
             'email': user.email,
         })
+
+
+ 
